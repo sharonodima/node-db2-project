@@ -18,22 +18,18 @@ const checkCarId = async (req, res, next) => {
 
 const checkCarPayload = (req, res, next) => {
   // DO YOUR MAGIC
-  if(!req.body.vin) return next({
-    status: 400,
-    mesage: "Vin is missing"
-  })
-  if(!req.body.make) return next({
-    status: 400,
-    mesage: "make is missing"
-  })
-  if(!req.body.model) return next({
-    status: 400,
-    mesage: "model is missing"
-  })
-  if(!req.body.mileage) return next({
-    status: 400,
-    mesage: "mileage is missing"
-  })
+  if(!req.body.vin) {
+    return res.status(400).json({message: "vin is missing"})
+    }
+  if(!req.body.make) {
+    return res.status(400).json({message: "make is missing"})
+    }
+  if(!req.body.model) {
+    return res.status(400).json({message: "model is missing"})
+    }
+  if(!req.body.mileage) {
+  return res.status(400).json({message: "mileage is missing"})
+  }
   next()
 }
 
